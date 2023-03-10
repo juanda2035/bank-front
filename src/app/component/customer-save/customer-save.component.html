@@ -1,0 +1,28 @@
+<div>
+  <h2>Customer Save</h2>
+  <div *ngIf="showMsg">
+    <li *ngFor="let msg of messages" type="none">
+      {{msg}}
+    </li>
+  </div>
+
+  <form #customerForm="ngForm">
+    <input [(ngModel)]="customer.custId" #custId type="text" name="custId" id="custId" placeholder="Id" /><br>
+    <select [(ngModel)]="customer.dotyId" #dotyId name="dotyId" id="dotyId">
+      <option *ngFor="let documentType of documentTypes" [value]="documentType.dotyId">
+        {{documentType.name}}
+      </option>
+    </select><br>
+    <input  [(ngModel)]="customer.name" #name type="text" name="name" id="name" placeholder="name" /><br>
+    <input  [(ngModel)]="customer.address" #address type="text" name="address" id="Address" placeholder="address" /><br>
+    <input  [(ngModel)]="customer.phone" #phone type="text" name="phone" id="phone" placeholder="phone" /><br>
+    <input  [(ngModel)]="customer.email" #email type="text" name="email" id="email" placeholder="email" /><br>
+    <input  [(ngModel)]="customer.token" #token type="text" name="token" id="token" placeholder="token" /><br>
+    <select [(ngModel)]="customer.enable" #enable name="enable" id="enable">
+      <option value="true">Yes</option>
+      <option value="false">No</option>
+    </select><br>
+    <button (click)="save()">Save</button>
+    <button routerLink="/customer-list">Cancel</button>
+  </form>
+</div>
